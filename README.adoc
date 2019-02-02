@@ -11,7 +11,7 @@ NOTE: This project assumes you're using https://spring.io/tools3/sts/all[Spring 
 === Open a terminal and begin generating your project, providing the requested values:
 [source,bash]
 ----
-cookiecutter https://github.com/William-Lake/VaadinCookies.git
+cookiecutter https://github.com/William-Lake/Vaadin8_CookieCutter.git
 ----
 
 === Import your project into Eclipse
