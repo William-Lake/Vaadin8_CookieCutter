@@ -4,11 +4,19 @@
 
 A CookieCutter for a standalone Spring Boot Web App with a Vaadin 8 UI.
 
-NOTE: This project assumes you're using https://spring.io/tools3/sts/all[Spring Tools Suite] for development. It also assumes you have https://github.com/audreyr/cookiecutter[cookiecutter] installed (`pip install cookiecutter`).
+NOTE: This project assumes you're using https://spring.io/tools3/sts/all[Spring Tools Suite] for development. It also assumes you have python and https://github.com/audreyr/cookiecutter[cookiecutter] installed (`pip install cookiecutter`).
 
 == Quickstart
 
+=== Install cookiecutter if you haven't already
+
+[source,bash]
+----
+pip install cookiecutter
+----
+
 === Open a terminal and begin generating your project, providing the requested values:
+
 [source,bash]
 ----
 cookiecutter https://github.com/William-Lake/Vaadin8_CookieCutter.git
