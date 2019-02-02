@@ -1,4 +1,4 @@
-package {{ cookiecutter.project_path }};
+package {{ cookiecutter.package_path }};
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,7 +1,7 @@
 {
 	"project_name": "ExampleApp",
 	"package_path": "com.example",
-	"java_version": "1.8",
-	"vaadin_version": "12.0.5",
+	"ui_class_generation": ["Yes","No"],
+	"restclient_class_generation": ["Yes","No"],
 	"_copy_without_render": [".mvn/", "mvnw.*"]
 }

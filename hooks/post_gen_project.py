@@ -1,54 +1,106 @@
 import os
 import shutil
 
+MAIN_PATH = os.path.join('src','main','java')
+
+TEST_PATH = os.path.join('src','test','java')
+
+PROJECT_NAME = '{{ cookiecutter.project_name }}'
+
+PACKAGE_PATH = '{{ cookiecutter.package_path }}'
+
+APP_FILE_NAME = PROJECT_NAME + '.java'
+
+TEST_APP_FILE_NAME = PROJECT_NAME + 'Tests.java'
+
+UI_FILE_NAME = 'PrimaryUI.java'
+
+REST_CLIENT_FILE_NAME = 'RestClient.java'
+
+MAIN_DIR = os.path.join(
+    MAIN_PATH, 
+    os.sep.join(PACKAGE_PATH.split('.')))
+
+TEST_DIR = os.path.join(
+    TEST_PATH, 
+    os.sep.join(PACKAGE_PATH.split('.')))
+
+UI_DIR = os.path.join(
+    MAIN_DIR,
+    'ui'
+)
+
+REST_DIR = os.path.join(
+    MAIN_DIR,
+    'rest'
+)
+
+
+def make_dirs_move_file(path_to_make, file_name):
+
+    try:
+
+        os.makedirs(path_to_make)
+
+        shutil.move(
+            file_name, 
+            os.path.join(
+                path_to_make,
+                file_name
+            )
+        )
+
+    except Exception as e:
+
+        print(str(e))
+
+        exit(1)
+
 try:
 
-    MAIN_PATH = os.path.join('src','main','java')
+    '''
+    Create dirs for main/test files.
+    Move main/test files
+    If the user wants the UI files
+        create dir
+        move file
+    else
+        delete file
+    If the user wants the RestClient files
+        create dir
+        move file
+    '''
 
-    TEST_PATH = os.path.join('src','test','java')
-
-    project_name = '{{ cookiecutter.project_name }}'
-
-    package_path = '{{ cookiecutter.package_path }}'
-
-    app_file_name = '{{ cookiecutter.project_name }}' + '.java'
-
-    test_app_file_name = '{{ cookiecutter.project_name }}' + 'Tests.java'
-
-    src_main_path = os.path.join(
-        project_name,
-        app_file_name
+    make_dirs_move_file(
+        MAIN_DIR,
+        APP_FILE_NAME
     )
 
-    src_test_path = os.path.join(
-        project_name,
-        test_app_file_name
+    make_dirs_move_file(
+        TEST_DIR,
+        TEST_APP_FILE_NAME
     )
 
-    dest_main_path = os.path.join(
-        project_name,
-        MAIN_PATH, 
-        os.sep.join(package_path.split('.')),
-        app_file_name)
+    if '{{ cookiecutter.ui_class_generation }}' == 'Yes':
 
-    dest_test_path = os.path.join(
-        project_name,
-        TEST_PATH, 
-        os.sep.join(package_path.split('.')),
-        test_app_file_name)
+        make_dirs_move_file(
+            UI_DIR,
+            UI_FILE_NAME
+        )
 
-    print(src_main_path)
+    else: os.remove(UI_FILE_NAME)
 
-    print(dest_main_path)
+    if '{{ cookiecutter.restclient_class_generation }}' == 'Yes':
 
-    print(src_test_path)
+        make_dirs_move_file(
+            REST_DIR,
+            REST_CLIENT_FILE_NAME
+        )
 
-    print(dest_test_path)
+    else: os.remove(REST_CLIENT_FILE_NAME)
 
-    shutil.move(src_main_path, dest_main_path)
+except Exception as e:
 
-    shutil.move(src_test_path, dest_test_path)
-
-except:
+    print(str(e))
 
     exit(1)

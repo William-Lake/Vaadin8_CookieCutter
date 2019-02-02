@@ -8,22 +8,29 @@
 		<version>2.1.2.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>{{ cookiecutter.project_path }}</groupId>
+	<groupId>{{ cookiecutter.package_path }}</groupId>
 	<artifactId>{{ cookiecutter.project_name }}</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>{{ cookiecutter.project_name }}</name>
 	<description>{{ cookiecutter.project_name }} project for Spring Boot</description>
 
 	<properties>
-		<java.version>{{ cookiecutter.java_version }}</java.version>
-		<vaadin.version>{{ cookiecutter.java_version }}</vaadin.version>
+		<java.version>1.8</java.version>
+		<vaadin.version>8.6.4</vaadin.version>
 	</properties>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jersey</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-spring-boot-starter</artifactId>
@@ -34,6 +41,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+
 	</dependencies>
 
 	<dependencyManagement>
