@@ -32,7 +32,7 @@ cookiecutter https://github.com/William-Lake/Vaadin8_CookieCutter.git
 
 === Run your project
 
-NOTE: If you opted not to generate the UI class then you likely will get a "WhiteLabel Error Page", however you can still verify your project is running via the console output.
+NOTE: If you opted not to generate the UI class you likely will get a "WhiteLabel Error Page", however you can still verify your project is running via the console output.
 
 . In the Package Explorer, *right click* your project and select menu:Run As[Spring Boot App]
 . Your console will open and you should see output like the example below.
