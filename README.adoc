@@ -1,4 +1,4 @@
-= VaadinCookies
+= Vaadin8_CookieCutter
 :source-highlighter: coderay
 :experimental:
 
